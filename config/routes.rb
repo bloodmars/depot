@@ -1,4 +1,15 @@
 Depot::Application.routes.draw do
+  get "admin/index"
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+
+scope '(:locale)' do
+
+  resources :users
+
+  resources :orders
+
   resources :line_items
 
   resources :carts
@@ -7,7 +18,7 @@ Depot::Application.routes.draw do
   resources :products
 
   root to: "store#index", as: "store"
-
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
